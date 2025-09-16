@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
 import { useState } from 'react';
 
 // Note: This metadata needs to be moved to a layout.tsx file since this is a client component
@@ -20,7 +19,6 @@ export default function ContactPage() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -28,12 +26,6 @@ export default function ContactPage() {
       ...prev,
       [name]: value
     }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    setIsSubmitting(true);
-    // Formspree will handle the form submission
-    // After submission, Formspree will redirect back or show success
   };
 
   return (
@@ -46,7 +38,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
             Get in touch with our team for inquiries, technical support, or partnership opportunities. 
-            We're here to help with all your moisture protection needs.
+            We&apos;re here to help with all your moisture protection needs.
           </p>
         </div>
       </section>
@@ -126,7 +118,7 @@ export default function ContactPage() {
                 <div className="mt-4 p-3 bg-blue-50 rounded-lg">
                   <p className="text-sm text-blue-800">
                     <strong>Note:</strong> For urgent inquiries outside business hours, 
-                    please send an email and we'll respond as soon as possible.
+                    please send an email and we&apos;ll respond as soon as possible.
                   </p>
                 </div>
               </div>
@@ -138,17 +130,6 @@ export default function ContactPage() {
                 Send Us a Message
               </h2>
               
-              {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    <p className="text-green-800">Thank you! Your message has been sent successfully.</p>
-                  </div>
-                </div>
-              )}
-
               <form action="https://formspree.io/f/xkgvlwbr" method="POST" className="space-y-6">
                 {/* Hidden field to identify this as a contact form */}
                 <input type="hidden" name="_subject" value="TOBOD Contact Form" />

@@ -90,7 +90,7 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold text-blue-900 text-center mb-4">Our Mission</h3>
               <p className="text-gray-600 text-center">
                 To provide superior nylon packaging solutions and reliable moisture protection 
-                products that safeguard our clients' goods during storage and transportation. 
+                products that safeguard our clients&apos; goods during storage and transportation. 
                 We are committed to delivering exceptional quality, reliability, and service 
                 that exceeds expectations and builds lasting partnerships with businesses across Nigeria.
               </p>

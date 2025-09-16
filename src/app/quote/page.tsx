@@ -27,7 +27,6 @@ export default function QuotePage() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const productTypes = [
     { value: 'ldpe-nylon', label: 'LDPE Nylon Packaging' },
@@ -59,12 +58,6 @@ export default function QuotePage() {
       ...prev,
       [name]: value
     }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    setIsSubmitting(true);
-    // Formspree will handle the form submission
-    // After submission, Formspree will redirect back or show success
   };
 
   return (
@@ -122,22 +115,6 @@ export default function QuotePage() {
             <h2 className="text-2xl font-bold text-blue-900 mb-8">
               Quote Request Form
             </h2>
-
-            {submitStatus === 'success' && (
-              <div className="mb-8 p-6 bg-green-50 border border-green-200 rounded-lg">
-                <div className="flex items-start">
-                  <svg className="w-6 h-6 text-green-500 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  <div>
-                    <h3 className="text-lg font-semibold text-green-800 mb-1">Quote Request Submitted!</h3>
-                    <p className="text-green-700">
-                      Thank you for your request. Our team will review your requirements and send you a detailed quote within 24 hours.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
 
             <form action="https://formspree.io/f/xkgvlwbr" method="POST" className="space-y-8">
               {/* Hidden field to identify this as a quote request */}
@@ -438,8 +415,8 @@ export default function QuotePage() {
                   <p className="font-medium mb-1">What happens next?</p>
                   <ul className="space-y-1 text-blue-700">
                     <li>• Our team will review your requirements within 24 hours</li>
-                    <li>• You'll receive a detailed quote with pricing and specifications</li>
-                    <li>• We'll include technical recommendations for optimal moisture protection</li>
+                    <li>• You&apos;ll receive a detailed quote with pricing and specifications</li>
+                    <li>• We&apos;ll include technical recommendations for optimal moisture protection</li>
                     <li>• Our sales team will contact you to discuss any questions</li>
                   </ul>
                 </div>
